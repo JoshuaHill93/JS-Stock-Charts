@@ -45,8 +45,34 @@ async function main() {
         }
     });
 
+
+
+
+new Chart(highestPriceChartCanvas.getContext('2d'), {
+    type: 'bar',
+    data: {
+        labels:["Hightest Stock Price"],
+        datasets: stocks.map( stock => ({
+            barPercentage: 1.0,
+            barThickness: 70,
+            label: stock.meta.symbol,  
+            data: stock.values.map(value => parseFloat(value.high)),
+            
+            backgroundColor: getColor(stock.meta.symbol),
+            borderColor: getColor(stock.meta.symbol),
+        }))
+    }
+});
+
 console.log(stocks[0].values)
 stocks[0].values.map( value => value. _)
+
+
+
+
+
+
+
 
 
 }
